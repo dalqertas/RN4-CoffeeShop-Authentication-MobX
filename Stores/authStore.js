@@ -30,11 +30,9 @@ class AuthStore {
   };
 
   login = async (userData, navigation) => {
-    console.log("LOGIN", userData);
     try {
       const res = await instance.post("login/", userData);
       const user = res.data;
-      console.log("LOGINNNN", user);
       await this.setUser(user.token);
       navigation.navigate("StackNav");
     } catch (err) {
